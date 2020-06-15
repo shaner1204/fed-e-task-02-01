@@ -11,10 +11,11 @@ console.log('cli working!')
 // 2、根据用户回答 的结果生成文件
 
 const fs = require('fs')
+const path = require('path')
 const inquirer = require('inquirer')
 const ejs = require('ejs') // 模板引擎
 
-// prompt 方法用于发起一个命令行的询问
+// inquirer 模块提供一个 prompt 方法用于发起一个命令行的询问
 // 接收一个数组参数，每个成员就是每一个命令行发起的问题
 // type:指定问题输入方式 
 // name:指定问题返回值的键
@@ -32,7 +33,7 @@ inquirer.prompt([
     // console.log(anwsers)
     // 根据用户回答的结果生成文件
 
-    // 模板根目录，项目当下目录下的templates
+    // 模板根目录，项目根目录下的templates
     const tmplDir = path.join(__dirname, 'templates')
     // 输出目标目录，命令行在哪个目录 去执行，就应该是哪个目录 应当是 cwd 目录 
     const destDir = process.cwd()
